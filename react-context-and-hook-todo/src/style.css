@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.row {
+  @apply flex flex-row;
+}
+
+.col {
+  @apply flex flex-col;
+}
+
+body {
+  @apply container mx-auto bg-slate-800 text-white;
+}
+
+.bg1 {
+  @apply bg-slate-700;
+}
+
+.bg2 {
+  @apply bg-slate-600;
+}
+
+.bubble {
+  @apply p-2 rounded-xl;
+}
+
+input {
+  @apply bg1 bubble;
+}
+
+button {
+  @apply bg2 bubble;
+}
