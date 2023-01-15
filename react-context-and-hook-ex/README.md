@@ -6,3 +6,4 @@ A demonstration of React context and hooks (Todo CRUD)
 
 - Tailwind styled interface
 - Strongly typed with Typescript
+- Hook used within a context
