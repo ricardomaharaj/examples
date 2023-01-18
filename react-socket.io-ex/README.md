@@ -4,6 +4,6 @@ A simple socket.io server and vite-react client that demonstrates simple chat ro
 
 ### Features:
 
-- Websocket messaging with as many connections as
 - Client and server strongly typed with Typescript
+- Instant messaging with an infinite number of participants
 - Tailwind styled client interface
