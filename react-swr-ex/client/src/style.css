@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply container mx-auto bg-slate-800 text-white;
+  @apply container mx-auto bg-stone-800 text-white;
 }
 
 .bg1 {
-  @apply bg-slate-700;
+  @apply bg-stone-700;
 }
 
 .bg2 {
-  @apply bg-slate-600;
+  @apply bg-stone-600;
 }
 
 .row {

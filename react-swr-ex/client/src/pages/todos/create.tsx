@@ -1,21 +1,20 @@
-import axios from 'axios'
 import { useRef } from 'react'
-import { baseURL } from '../consts'
+import { api } from '../../consts'
 import { useNavigate } from 'react-router-dom'
 
 export function CreateTodo() {
-  let taskRef = useRef<HTMLInputElement>(null)
-  let nav = useNavigate()
+  const taskRef = useRef<HTMLInputElement>(null)
+  const nav = useNavigate()
 
   const create = () => {
-    let todo = { task: taskRef.current!.value }
-    axios.post(`${baseURL}/todos`, todo)
-    nav('/todos')
+    api.post('/todos', { task: taskRef.current!.value }).then(() => {
+      nav('/todos')
+    })
   }
 
   return (
     <>
-      <div className=''>
+      <div>
         <div className='row space-x-2'>
           <input
             className='bg1 p-2'

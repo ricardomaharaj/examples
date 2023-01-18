@@ -2,34 +2,28 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { Home } from './pages'
 import { SWRConfig } from 'swr'
 import { Todos } from './pages/todos'
-import { baseURL } from './consts'
-import { CreateTodo } from './pages/create'
-import { EditTodo } from './pages/edit'
-import { Multiple } from './pages/multiple'
+import { fetcher } from './consts'
+import { CreateTodo } from './pages/todos/create'
+import { EditTodo } from './pages/todos/edit'
+import { Multiple } from './pages/todos/multiple'
 
 export function App() {
   return (
     <>
       <BrowserRouter>
-        <SWRConfig
-          value={{
-            fetcher: (path: string) =>
-              fetch(`${baseURL}${path}`).then((res) => res.json())
-          }}
-        >
+        <SWRConfig value={{ fetcher }}>
           <div className='container mx-auto m-2 xl:w-[60%]'>
             <div className='space-x-4 mb-4'>
               <Link to='/'>Index</Link>
-              <Link to='/todos'>/todos</Link>
-              <Link to='/create'>/create</Link>
-              <Link to='/multiple'>/multiple</Link>
+              <Link to='/todos'>All Todos</Link>
+              <Link to='/todos/create'>Create Todo</Link>
             </div>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/todos' element={<Todos />} />
               <Route path='/todos/:id' element={<EditTodo />} />
-              <Route path='/create' element={<CreateTodo />} />
-              <Route path='/multiple' element={<Multiple />} />
+              <Route path='/todos/create' element={<CreateTodo />} />
+              <Route path='/todos/multiple/:id' element={<Multiple />} />
             </Routes>
           </div>
         </SWRConfig>

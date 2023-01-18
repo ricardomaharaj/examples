@@ -1,36 +1,34 @@
-import axios from 'axios'
-import { useRef } from 'react'
+import { Todo } from '../../types/todo'
+import { api } from '../../consts'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useRef } from 'react'
 import useSWR from 'swr'
-import { baseURL } from '../consts'
-import { Todo } from '../types/todo'
 
 export function EditTodo() {
-  let { id } = useParams()
-  let getTodoRes = useSWR<Todo>(`/todos/${id}`)
-  let todo = getTodoRes.data
+  const { id } = useParams()
+  let { data: todo, error, isLoading } = useSWR<Todo>(`/todos/${id}`)
 
-  let taskRef = useRef<HTMLInputElement>(null)
-  let nav = useNavigate()
+  const taskRef = useRef<HTMLInputElement>(null)
+  const nav = useNavigate()
 
   const update = () => {
-    axios
-      .put(`${baseURL}/todos/${id}`, { task: taskRef.current!.value })
-      .then(() => {
-        nav('/todos')
-      })
+    api.put(`/todos/${id}`, { task: taskRef.current!.value }).then(() => {
+      nav('/todos')
+    })
   }
 
   const remove = () => {
-    axios.delete(`${baseURL}/todos/${id}`).then(() => {
+    api.delete(`/todos/${id}`).then(() => {
       nav('/todos')
     })
   }
 
   return (
     <>
-      <div className=''>
-        {todo ? (
+      <div>
+        {isLoading && <code>loading...</code>}
+        {error && <code>error</code>}
+        {todo && (
           <div className='row space-x-2'>
             <input
               className='bg1 p-2'
@@ -46,8 +44,6 @@ export function EditTodo() {
               REMOVE
             </button>
           </div>
-        ) : (
-          <code>loading...</code>
         )}
       </div>
     </>

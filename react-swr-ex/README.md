@@ -5,5 +5,6 @@ Example of SWR in a React app (Todo CRUD)
 ### Features:
 
 - Strongly typed with Typescript
-- SWR batch request grouping `/multiple`
+- SWR same request grouping
+- Axios instance shared app wide via `SWRConfig`
 - Tailwind styled client interface
