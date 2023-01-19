@@ -13,11 +13,14 @@ const TodoContext = createContext<ITodoContext | null>(null)
 
 export const useTodoContext = () => {
   const ctx = useContext(TodoContext)
+  if (!ctx) {
+    throw new Error('Todo context undefined')
+  }
   return ctx
 }
 
 export function TodoProvider(props: { children: ReactNode }) {
-  let value = useTodos()
+  const value = useTodos()
   return (
     <TodoContext.Provider value={value}>{props.children}</TodoContext.Provider>
   )
