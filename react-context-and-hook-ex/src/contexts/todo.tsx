@@ -1,20 +1,14 @@
 import { createContext, ReactNode, useContext } from 'react'
 import { useTodos } from '../hooks/todos'
-import { Todo } from '../types/todo'
 
-interface ITodoContext {
-  todos: Todo[]
-  create: (args: { task: string }) => void
-  update: (args: { id: number; task: string }) => void
-  remove: (args: { id: number }) => void
-}
+type TodoContextType = ReturnType<typeof useTodos>
 
-const TodoContext = createContext<ITodoContext | null>(null)
+const TodoContext = createContext<TodoContextType | null>(null)
 
 export const useTodoContext = () => {
   const ctx = useContext(TodoContext)
   if (!ctx) {
-    throw new Error('Todo context undefined')
+    throw new Error('todo context undefined')
   }
   return ctx
 }
