@@ -4,6 +4,7 @@ A demonstration of React context and hooks (Todo CRUD)
 
 ### Features
 
-- Tailwind styled interface
 - Strongly typed with Typescript
 - Hook used within a context
+- Type derived from state code, rather than manually
+- Tailwind styled interface
