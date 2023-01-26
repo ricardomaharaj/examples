@@ -1,5 +1,5 @@
-import { Todo } from '../../types/todo'
-import { api } from '../../consts'
+import { Todo } from '../../../types/todo'
+import { api } from '../../../consts'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import useSWR from 'swr'
@@ -29,9 +29,9 @@ export function EditTodo() {
         {isLoading && <code>loading...</code>}
         {error && <code>error</code>}
         {todo && (
-          <div className='row space-x-2'>
+          <div className='row space-x-2 bg1 p-2'>
             <input
-              className='bg1 p-2'
+              className='bg2 p-2'
               type='text'
               ref={taskRef}
               placeholder='Task'

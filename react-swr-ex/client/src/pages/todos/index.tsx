@@ -11,21 +11,21 @@ export function Todos() {
         {isLoading && <code>loading...</code>}
         {error && <code>error</code>}
         {todos && (
-          <div className='space-y-2'>
+          <>
             {todos.map((todo, i) => (
               <div key={i} className='row bg1 p-2 justify-between'>
-                <div>{todo.task}</div>
+                <div className='bg2 p-2'>{todo.task}</div>
                 <div className='row space-x-2'>
-                  <Link to={`/todos/${todo.id}`} className='bg2 px-2'>
+                  <Link to={`edit/${todo.id}`} className='bg2 p-2'>
                     EDIT
                   </Link>
-                  <Link to={`/todos/multiple/${todo.id}`} className='bg2 px-2'>
+                  <Link to={`multiple/${todo.id}`} className='bg2 p-2'>
                     MULTIPLE
                   </Link>
                 </div>
               </div>
             ))}
-          </div>
+          </>
         )}
       </div>
     </>
