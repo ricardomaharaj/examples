@@ -8,3 +8,8 @@ Example of SWR in a React app (Todo CRUD)
 - SWR same request grouping
 - Axios instance shared app wide via `SWRConfig`
 - Tailwind styled client interface
+
+### Usage
+
+1. install dependencies
+2. run the `dev` script
