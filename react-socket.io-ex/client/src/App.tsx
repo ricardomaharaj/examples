@@ -1,17 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { io } from 'socket.io-client'
 
 const socket = io('http://localhost:4000')
 
 export function App() {
   let textareaE = useRef<HTMLTextAreaElement>(null)
+  let [id, setID] = useState('')
 
   useEffect(() => {
     socket.on('connect', () => {
-      console.log(`connected to socket.io with id ${socket.id}`)
+      setID(socket.id)
     })
     socket.on('disconnect', () => {
-      console.log('disconnected from socket.io')
+      setID('')
     })
 
     socket.on('msg', (data) => {
@@ -27,26 +28,18 @@ export function App() {
 
   return (
     <>
-      <div className='container mx-auto'>
-        <div className='col m-2 space-y-2'>
-          <input
-            className='bg1 bubble'
-            placeholder='message'
-            onKeyDown={(e) => {
-              let msg = e.currentTarget.value
-              if (e.key === 'Enter' && msg) {
-                socket.emit('msg', { msg: `${socket.id}: ${msg}` })
-              }
-            }}
-          />
-
-          <textarea
-            className='bg1 bubble h-[80vh]'
-            disabled
-            ref={textareaE}
-          ></textarea>
-        </div>
-      </div>
+      {id && <div className='bg2 p-2'>Your ID: {id}</div>}
+      <textarea className='bg1 p-2 h-[80vh]' disabled ref={textareaE} />
+      <input
+        className='bg1 p-2'
+        placeholder='message'
+        onKeyDown={(e) => {
+          let msg = e.currentTarget.value
+          if (e.key === 'Enter' && msg) {
+            socket.emit('msg', { msg: `${socket.id}: ${msg}` })
+          }
+        }}
+      />
     </>
   )
 }

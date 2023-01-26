@@ -11,13 +11,17 @@
 }
 
 body {
-  @apply bg-stone-800 text-white;
+  @apply container mx-auto bg-stone-800 text-white;
+}
+
+#root {
+  @apply col m-2;
 }
 
 .bg1 {
   @apply bg-stone-700;
 }
 
-.bubble {
-  @apply rounded-xl p-2;
+.bg2 {
+  @apply bg-stone-600;
 }
