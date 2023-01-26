@@ -12,20 +12,18 @@ export function App() {
     <>
       <BrowserRouter>
         <SWRConfig value={{ fetcher }}>
-          <div className='container mx-auto m-2 xl:w-[60%]'>
-            <div className='space-x-4 mb-4'>
-              <Link to='/'>Index</Link>
-              <Link to='/todos'>All Todos</Link>
-              <Link to='/todos/create'>Create Todo</Link>
-            </div>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/todos' element={<Todos />} />
-              <Route path='/todos/:id' element={<EditTodo />} />
-              <Route path='/todos/create' element={<CreateTodo />} />
-              <Route path='/todos/multiple/:id' element={<Multiple />} />
-            </Routes>
+          <div className='row space-x-4 mb-4'>
+            <Link to='/'>Index</Link>
+            <Link to='/todos'>All Todos</Link>
+            <Link to='/todos/create'>Create Todo</Link>
           </div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/todos' element={<Todos />} />
+            <Route path='/todos/create' element={<CreateTodo />} />
+            <Route path='/todos/edit/:id' element={<EditTodo />} />
+            <Route path='/todos/multiple/:id' element={<Multiple />} />
+          </Routes>
         </SWRConfig>
       </BrowserRouter>
     </>

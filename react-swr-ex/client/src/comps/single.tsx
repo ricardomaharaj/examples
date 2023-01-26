@@ -14,7 +14,7 @@ export function Single(props: Props) {
       {error && <code>error</code>}
       {todo && (
         <div className='row bg1 p-2'>
-          <code>{JSON.stringify(todo)}</code>
+          <code className='bg2 p-2'>{JSON.stringify(todo)}</code>
         </div>
       )}
     </>
