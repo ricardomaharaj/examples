@@ -16,21 +16,21 @@ export function Todos() {
           }
         }}
       />
-      <div className='col space-y-2'>
-        {todos.map((todo, i) => (
-          <div className='row justify-between space-x-2 bg1 p-2' key={i}>
+      <div className='col space-y-1'>
+        {todos.map((todo) => (
+          <div className='row justify-between bg1 p-2' key={todo.id}>
             <input
-              className='w-full bg1'
-              onChange={(e) =>
-                update({ id: todo.id, task: e.currentTarget.value })
-              }
+              className='bg2 p-2'
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  update({ id: todo.id, task: e.currentTarget.value })
+                }
+              }}
               type='text'
               defaultValue={todo.task}
+              placeholder='Task'
             />
-            <button
-              className='bg2 px-2'
-              onClick={() => remove({ id: todo.id })}
-            >
+            <button className='bg2 p-2' onClick={() => remove({ id: todo.id })}>
               REMOVE
             </button>
           </div>

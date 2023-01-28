@@ -8,7 +8,7 @@ export function useTodos() {
   const create = (args: { task: string }) => {
     if (args.task) {
       const todo: Todo = { id, task: args.task }
-      setID((prev) => prev++)
+      setID(id + 1)
       setTodos((prev) => [...prev, todo])
     }
   }
