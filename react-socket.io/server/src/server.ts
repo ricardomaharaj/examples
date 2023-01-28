@@ -17,4 +17,4 @@ io.on('connection', (socket: Socket) => {
 })
 
 io.listen(PORT)
-console.log(`socket.io listening on http://localhost:${PORT}`)
+console.log(`\nsocket.io listening on http://localhost:${PORT}\n`)
