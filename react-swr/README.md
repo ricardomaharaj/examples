@@ -1,4 +1,4 @@
-# React SWR Example
+# React SWR
 
 Example of SWR in a React app (Todo CRUD)
 

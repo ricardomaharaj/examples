@@ -6,17 +6,14 @@ import { fetcher } from './consts'
 import { CreateTodo } from './pages/todos/create'
 import { EditTodo } from './pages/todos/edit'
 import { Multiple } from './pages/todos/multiple'
+import { Header } from './comps/header'
 
 export function App() {
   return (
     <>
       <BrowserRouter>
         <SWRConfig value={{ fetcher }}>
-          <div className='row space-x-4 mb-4'>
-            <Link to='/'>Index</Link>
-            <Link to='/todos'>All Todos</Link>
-            <Link to='/todos/create'>Create Todo</Link>
-          </div>
+          <Header />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/todos' element={<Todos />} />
