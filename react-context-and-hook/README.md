@@ -1,4 +1,4 @@
-# React Context and Hook Example
+# React Context and Hook
 
 A demonstration of React context and hooks (Todo CRUD)
 
