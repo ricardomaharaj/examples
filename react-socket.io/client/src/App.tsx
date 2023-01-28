@@ -31,7 +31,7 @@ export function App() {
       {id && <div className='bg2 p-2'>Your ID: {id}</div>}
       <textarea className='bg1 p-2 h-[80vh]' disabled ref={textareaE} />
       <input
-        className='bg1 p-2'
+        className='bg2 p-2'
         placeholder='message'
         onKeyDown={(e) => {
           let msg = e.currentTarget.value
