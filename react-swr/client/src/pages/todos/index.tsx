@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useSWR from 'swr'
 
 export function Todos() {
-  let { data: todos, error, isLoading } = useSWR<Todo[]>('/todos')
+  const { data: todos, error, isLoading } = useSWR<Todo[]>('/todos')
 
   return (
     <>
@@ -12,8 +12,8 @@ export function Todos() {
         {error && <code>error</code>}
         {todos && (
           <>
-            {todos.map((todo, i) => (
-              <div key={i} className='row bg1 p-2 justify-between'>
+            {todos.map((todo) => (
+              <div key={todo.id} className='row bg1 p-2 justify-between'>
                 <div className='bg2 p-2'>{todo.task}</div>
                 <div className='row space-x-2'>
                   <Link to={`edit/${todo.id}`} className='bg2 p-2'>

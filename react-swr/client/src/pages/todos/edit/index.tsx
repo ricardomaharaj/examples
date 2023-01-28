@@ -6,7 +6,7 @@ import useSWR from 'swr'
 
 export function EditTodo() {
   const { id } = useParams()
-  let { data: todo, error, isLoading } = useSWR<Todo>(`/todos/${id}`)
+  const { data: todo, error, isLoading } = useSWR<Todo>(`/todos/${id}`)
 
   const taskRef = useRef<HTMLInputElement>(null)
   const nav = useNavigate()
