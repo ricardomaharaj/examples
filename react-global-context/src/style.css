@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply container mx-auto bg1 text-white;
+  }
+  #root {
+    @apply col m-2;
+  }
+}
+
+@layer components {
+  .bg1 {
+    @apply bg-stone-800;
+  }
+  .bg2 {
+    @apply bg-stone-700;
+  }
+  .bg3 {
+    @apply bg-stone-600;
+  }
+  .bg4 {
+    @apply bg-stone-500;
+  }
+}
+
+@layer utilities {
+  .row {
+    @apply flex flex-row space-x-2;
+  }
+  .col {
+    @apply flex flex-col space-y-2;
+  }
+}
