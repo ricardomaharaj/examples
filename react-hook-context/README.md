@@ -1,11 +1,11 @@
-# React Context and Hook
+# React Hook Context
 
-A demonstration of React context and hooks (Todo CRUD)
+A demonstration of a hook inside a context (Todo CRUD)
 
 ### Features
 
 - Strongly typed with Typescript
-- Type derived from state code, rather than manually
+- Type derived / inferred from code
 - Hook used within a context
 - Tailwind styled interface
 
