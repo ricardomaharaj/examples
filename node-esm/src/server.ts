@@ -1,40 +1,32 @@
-import { sequelize } from "./db.js";
-import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
-import { env } from "./env.js";
-import { Tasks } from "./resolvers/tasks.js";
+import fs from 'node:fs'
 
-await sequelize.sync();
+import { ApolloServer } from '@apollo/server'
+import { startStandaloneServer } from '@apollo/server/standalone'
 
-const typeDefs = `
-    type Task {
-      id: ID
-      task: String
-    }
+import { sequelize } from './db/db.js'
+import { tasks } from './resolvers/tasks.js'
 
-    type Query {
-      getAllTasks: [Task]
-      getTask(id: ID): Task
-    }
+import { env } from './env.js'
 
-    type Mutation {
-      newTask(task: String): Task
-      editTask(id: ID, task: String): Task
-      deleteTask(id: ID): Task
-    }
-`;
+await sequelize.sync()
+
+const typeDefs = fs
+  .readFileSync('./schema.gql', { encoding: 'utf-8' })
+  .toString()
 
 const resolvers = {
   Query: {
-    ...Tasks.Query,
+    ...tasks.Query
   },
   Mutation: {
-    ...Tasks.Mutation,
-  },
-};
+    ...tasks.Mutation
+  }
+}
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const apollo = new ApolloServer({ typeDefs, resolvers })
 
-startStandaloneServer(server, { listen: { port: env.PORT } }).then(({ url }) =>
-  console.log(url)
-);
+const { url } = await startStandaloneServer(apollo, {
+  listen: { port: env.PORT }
+})
+
+console.log(url)

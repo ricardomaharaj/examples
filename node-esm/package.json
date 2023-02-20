@@ -2,28 +2,24 @@
   "name": "esm-ex",
   "version": "0",
   "type": "module",
-  "exports": [
-    "./src/server.mjs",
-    "./build/server.mjs"
-  ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
-    "watch": "tsc -w",
-    "dev": "nodemon ./build/server.mjs",
+    "w": "tsc -w",
+    "dev": "nodemon ./build/server",
     "build": "tsc",
-    "start": "node ./build/server.mjs"
+    "start": "node ./build/server"
   },
   "dependencies": {
-    "@apollo/server": "4.3.3",
+    "@apollo/server": "4.4.0",
     "dotenv": "16.0.3",
     "graphql": "16.6.0",
     "sequelize": "6.28.0",
     "sqlite3": "5.1.4"
   },
   "devDependencies": {
-    "@types/node": "18.13.0",
+    "@types/node": "18.14.0",
     "nodemon": "2.0.20",
     "typescript": "4.9.5"
   }

@@ -1,53 +1,47 @@
-import type { GQL_Mutation } from "../types/gql/mutation.js";
-import type { GQL_Query } from "../types/gql/query.js";
-import type { GQL_Resolver } from "../types/gql/resolver.js";
+import { GraphQLError } from 'graphql'
 
-import { Task } from "../models/task.js";
+import type { Resolver } from '../types/resolver.js'
 
-import { notFound } from "./errors/not-found.js";
+import { Task } from '../db/models/task.js'
 
-// Queries
+const getAllTasks: Resolver = async () => {
+  return await Task.findAll()
+}
 
-const getAllTasks: GQL_Query = async (_, args) => {
-  return await Task.findAll();
-};
+const getTask: Resolver = async (_, args) => {
+  const task = await Task.findByPk(args.id)
+  if (!task) throw new GraphQLError('not found')
+  return task
+}
 
-const getTask: GQL_Query = async (_, args) => {
-  const task = await Task.findByPk(args.id);
-  if (!task) return notFound();
-  return task;
-};
+const newTask: Resolver = async (_, args) => {
+  const task = await Task.create({ task: args.task })
+  return task
+}
 
-// Mutations
+const editTask: Resolver = async (_, args) => {
+  const task = await Task.findByPk(args.id)
+  if (!task) throw new GraphQLError('not found')
+  task.task = args.task
+  await task.save()
+  return task
+}
 
-const newTask: GQL_Mutation = async (_, args) => {
-  const task = await Task.create({ task: args.task });
-  return task;
-};
+const deleteTask: Resolver = async (_, args) => {
+  const task = await Task.findByPk(args.id)
+  if (!task) throw new GraphQLError('not found')
+  await task.destroy()
+  return task
+}
 
-const editTask: GQL_Mutation = async (_, args) => {
-  const task = await Task.findByPk(args.id);
-  if (!task) return notFound();
-  task.task = args.task;
-  await task.save();
-  return task;
-};
-
-const deleteTask: GQL_Mutation = async (_, args) => {
-  const task = await Task.findByPk(args.id);
-  if (!task) return notFound();
-  await task.destroy();
-  return task;
-};
-
-export const Tasks: GQL_Resolver = {
+export const tasks = {
   Query: {
     getAllTasks,
-    getTask,
+    getTask
   },
   Mutation: {
     newTask,
     editTask,
-    deleteTask,
-  },
-};
+    deleteTask
+  }
+}
