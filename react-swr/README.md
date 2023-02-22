@@ -11,5 +11,13 @@ Example of SWR in a React app (Todo CRUD)
 
 ### Usage
 
+client:
+
 1. install dependencies
 2. run the `dev` script
+
+server: `../fastify-sequelize`
+
+1. install dependencies
+2. run the watch `w` script
+3. in another terminal run the `dev` script
