@@ -1,25 +1,27 @@
-import { Todo } from '../../../types/todo'
-import { api } from '../../../consts'
-import { useNavigate, useParams } from 'react-router-dom'
 import { useRef } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import useSWR from 'swr'
 
-export function EditTodo() {
+import type { Task } from '../types/task'
+
+import { api } from '../consts'
+
+export function EditTask() {
   const { id } = useParams()
-  const { data: todo, error, isLoading } = useSWR<Todo>(`/todos/${id}`)
+  const { data: task, error, isLoading } = useSWR<Task>(`/tasks/${id}`)
 
   const taskRef = useRef<HTMLInputElement>(null)
   const nav = useNavigate()
 
   const update = () => {
-    api.put(`/todos/${id}`, { task: taskRef.current!.value }).then(() => {
-      nav('/todos')
+    api.patch(`/tasks/${id}`, { task: taskRef.current!.value }).then(() => {
+      nav('/tasks')
     })
   }
 
   const remove = () => {
-    api.delete(`/todos/${id}`).then(() => {
-      nav('/todos')
+    api.delete(`/tasks/${id}`).then(() => {
+      nav('/tasks')
     })
   }
 
@@ -28,20 +30,20 @@ export function EditTodo() {
       <div>
         {isLoading && <code>loading...</code>}
         {error && <code>error</code>}
-        {todo && (
-          <div className='row space-x-2 bg1 p-2'>
+        {task && (
+          <div className='row bg1 space-x-2 p-2'>
             <input
               className='bg2 p-2'
               type='text'
               ref={taskRef}
               placeholder='Task'
-              defaultValue={todo.task}
+              defaultValue={task.task}
             />
             <button onClick={update} className='bg2 p-2'>
               UPDATE
             </button>
             <button onClick={remove} className='bg2 p-2'>
-              REMOVE
+              DELETE
             </button>
           </div>
         )}

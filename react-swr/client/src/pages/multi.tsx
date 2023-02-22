@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import { useParams } from 'react-router-dom'
-import { Single } from '../../../comps/single'
 
-export function Multiple() {
+import { Single } from '../comps/single'
+
+export function Multi() {
   const { id } = useParams()
 
   return (

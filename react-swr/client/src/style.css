@@ -2,26 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-.row {
-  @apply flex flex-row;
+@layer base {
+  body {
+    @apply container mx-auto max-w-screen-xl bg-stone-800 text-white;
+  }
+  #root {
+    @apply col m-2;
+  }
 }
 
-.col {
-  @apply flex flex-col;
+@layer components {
+  .bg1 {
+    @apply bg-stone-700;
+  }
+  .bg2 {
+    @apply bg-stone-600;
+  }
 }
 
-body {
-  @apply container mx-auto bg-stone-800 text-white;
-}
-
-#root {
-  @apply col m-2;
-}
-
-.bg1 {
-  @apply bg-stone-700;
-}
-
-.bg2 {
-  @apply bg-stone-600;
+@layer utilities {
+  .row {
+    @apply flex flex-row;
+  }
+  .col {
+    @apply flex flex-col;
+  }
 }
