@@ -1,13 +1,18 @@
 import Fast from 'fastify'
-import { sequelize } from './db/index'
-import { ENV } from './env'
-import { TodoController } from './controllers/todo'
+import FastCors from '@fastify/cors'
 
-sequelize.sync()
+import { sequelize } from './db/db.js'
+import { env } from './env.js'
+
+import { taskController } from './controllers/tasks.js'
+
+await sequelize.sync()
 
 const fast = Fast()
 
-fast.register(TodoController, { prefix: '/todos' })
+fast.register(FastCors)
+fast.register(taskController, { prefix: '/tasks' })
 
-fast.listen({ port: ENV.PORT })
-console.log(`\nfastify listening on http://localhost:${ENV.PORT}\n`)
+fast.listen({ port: env.PORT })
+
+console.log(`http://localhost:${env.PORT}`)

@@ -11,5 +11,14 @@ A REST Todo CRUD api written with fastify in Typescript
 
 ### Usage
 
+for development:
+
 1. install dependencies
-2. run `dev` script
+2. run the watch `w` script
+3. in another terminal run the `dev` script
+
+for prod:
+
+1. install dependencies
+2. run the `build` script
+3. run the `start` script
