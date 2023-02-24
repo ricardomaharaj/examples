@@ -9,15 +9,14 @@ type MainContext = {
   takeout: ReturnType<typeof useTakeout>
 }
 
-let mainContext = createContext<MainContext | null>(null)
+const mainContext = createContext<MainContext | null>(null)
 
 export function useMainContext() {
-  let ctx = useContext(mainContext)!
-  return ctx
+  return useContext(mainContext)!
 }
 
 export function MainProvider(props: { children?: ReactNode }) {
-  let value: MainContext = {
+  const value: MainContext = {
     beverage: useBeverage(),
     toppings: useToppings(),
     takeout: useTakeout()

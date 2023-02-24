@@ -2,7 +2,7 @@ import { useMainContext } from '../state/main'
 import { toppings } from '../consts/toppings'
 
 export function Toppings() {
-  let { toppingSelected, toggleTopping } = useMainContext().toppings
+  const { isToppingSelected, toggleTopping } = useMainContext().toppings
 
   return (
     <>
@@ -14,8 +14,8 @@ export function Toppings() {
           {toppings.map((topping) => (
             <button
               onClick={() => toggleTopping(topping)}
-              className={`row bg2 p-2 rounded-xl ${
-                toppingSelected(topping) && 'bg4'
+              className={`row bg2 rounded-xl p-2 ${
+                isToppingSelected(topping) && 'bg4'
               }`}
               key={topping}
             >

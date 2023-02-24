@@ -1,17 +1,17 @@
 import { useMainContext } from '../state/main'
 
 export function Takeout() {
-  let { takeout, setTakeout } = useMainContext().takeout
+  const { takeout, setTakeout } = useMainContext().takeout
 
   return (
     <>
       <div className='col'>
         <div className='text-xl'>Takeout? </div>
-        <div className='row p-2 bg2 rounded-xl'>
+        <div className='row bg2 rounded-xl p-2'>
           <div className='col my-auto'>
             <div
               onClick={() => setTakeout(!takeout)}
-              className={`w-4 h-4 border border-stone-400 ${
+              className={`h-4 w-4 border border-stone-400 ${
                 takeout && 'bg-stone-400'
               }`}
             />

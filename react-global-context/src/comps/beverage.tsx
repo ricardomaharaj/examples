@@ -2,7 +2,7 @@ import { beverages } from '../consts/beverages'
 import { useMainContext } from '../state/main'
 
 export function Beverage() {
-  let { setBeverage, isBeverageSelected } = useMainContext().beverage
+  const { setBeverage, isBeverageSelected } = useMainContext().beverage
 
   return (
     <>
@@ -11,7 +11,7 @@ export function Beverage() {
         <div className='col'>
           {beverages.map(({ name, price }) => (
             <button
-              className={`row justify-between bg2 p-2 rounded-xl ${
+              className={`row bg2 justify-between rounded-xl p-2 ${
                 isBeverageSelected(name) && 'bg4'
               }`}
               onClick={() => setBeverage({ name, price })}

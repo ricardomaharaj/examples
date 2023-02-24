@@ -1,13 +1,13 @@
 import { useMainContext } from '../state/main'
 
 export function CheckOut() {
-  let { beverage } = useMainContext().beverage
-  let { toppings } = useMainContext().toppings
-  let { takeout } = useMainContext().takeout
+  const { beverage } = useMainContext().beverage
+  const { toppings } = useMainContext().toppings
+  const { takeout } = useMainContext().takeout
 
   return (
     <>
-      <div className='col w-[300px] bg2 p-2 rounded-xl'>
+      <div className='col bg2 w-[300px] rounded-xl p-2'>
         <div className='text-2xl'>Checkout</div>
         {beverage?.name && (
           <>
