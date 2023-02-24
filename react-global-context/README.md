@@ -12,5 +12,5 @@ values while still separating concerns cleanly and with typescript support
 
 ### Usage
 
-- install dependencies
-- run the `dev` script
+1. install dependencies `npm i`
+2. run the dev script `npm run dev`
