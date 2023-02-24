@@ -8,7 +8,7 @@
 
 @layer base {
   body {
-    @apply container mx-auto bg1 text-white;
+    @apply bg1 container mx-auto text-white;
   }
   #root {
     @apply col m-2;
