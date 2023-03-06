@@ -1,9 +1,10 @@
 import { useMainContext } from '../state/main'
 
 export function CheckOut() {
-  const { beverage } = useMainContext().beverage
-  const { toppings } = useMainContext().toppings
-  const { takeout } = useMainContext().takeout
+  const ctx = useMainContext()
+  const { beverage } = ctx.beverage
+  const { toppings } = ctx.toppings
+  const { takeout } = ctx.takeout
 
   return (
     <>

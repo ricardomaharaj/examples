@@ -1,7 +1,8 @@
 import { useMainContext } from '../state/main'
 
 export function Takeout() {
-  const { takeout, setTakeout } = useMainContext().takeout
+  const ctx = useMainContext()
+  const { takeout, setTakeout } = ctx.takeout
 
   return (
     <>

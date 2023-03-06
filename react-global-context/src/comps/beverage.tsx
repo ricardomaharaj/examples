@@ -2,7 +2,8 @@ import { beverages } from '../consts/beverages'
 import { useMainContext } from '../state/main'
 
 export function Beverage() {
-  const { setBeverage, isBeverageSelected } = useMainContext().beverage
+  const ctx = useMainContext()
+  const { setBeverage, isBeverageSelected } = ctx.beverage
 
   return (
     <>

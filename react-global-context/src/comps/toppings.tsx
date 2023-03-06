@@ -2,7 +2,8 @@ import { useMainContext } from '../state/main'
 import { toppings } from '../consts/toppings'
 
 export function Toppings() {
-  const { isToppingSelected, toggleTopping } = useMainContext().toppings
+  const ctx = useMainContext()
+  const { isToppingSelected, toggleTopping } = ctx.toppings
 
   return (
     <>
