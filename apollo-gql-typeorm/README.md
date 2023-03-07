@@ -1,11 +1,11 @@
-# Apollo GQL Sequelize
+# Apollo GraphQL TypeORM
 
-A Apollo Graphql server with a Sequelize SQLite backend
+A Apollo Graphql server with a TypeORM SQLite backend
 
 ### Features
 
 - Strongly typed with Typescript
-- Sequelize model class with strict types
+- TypeORM entity class with decorators
 - GraphQL type errors with http error codes
 
 ### Usage

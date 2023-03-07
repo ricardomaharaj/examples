@@ -1,30 +1,31 @@
 import type { Resolver } from '../types/resolver.js'
 
-import { Task } from '../db/models/task.js'
 import { notFound } from './util/not-found.js'
+import { TaskModel } from '../db/models/task.js'
+import { Task } from '../types/task.js'
 import { Logger } from '../util/logger.js'
 
 const getAllTasks: Resolver<Task[]> = async () => {
   Logger.info('tasks.getAllTasks()')
-  return await Task.findAll()
+  return await TaskModel.find()
 }
 
 const getTaskById: Resolver<Task> = async (_, args) => {
-  Logger.info('tasks.getTaskById()')
-  const task = await Task.findByPk(args.id)
+  Logger.info('tasks.getTask()')
+  const task = await TaskModel.findById(args.id)
   if (!task) throw notFound()
   return task
 }
 
 const createTask: Resolver<boolean> = async (_, args) => {
   Logger.info('tasks.createTask()')
-  const task = await Task.create({ task: args.task })
+  await TaskModel.create({ task: args.task })
   return true
 }
 
 const updateTask: Resolver<boolean> = async (_, args) => {
   Logger.info('tasks.updateTask()')
-  const task = await Task.findByPk(args.id)
+  const task = await TaskModel.findById(args.id)
   if (!task) throw notFound()
   task.task = args.task
   await task.save()
@@ -33,9 +34,9 @@ const updateTask: Resolver<boolean> = async (_, args) => {
 
 const deleteTask: Resolver<boolean> = async (_, args) => {
   Logger.info('tasks.deleteTask()')
-  const task = await Task.findByPk(args.id)
+  const task = await TaskModel.findById(args.id)
   if (!task) throw notFound()
-  await task.destroy()
+  await task.deleteOne()
   return true
 }
 

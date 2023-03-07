@@ -1,11 +1,11 @@
-# Apollo GQL Sequelize
+# Apollo GraphQL Sequelize
 
-A Apollo Graphql server with a Sequelize SQLite backend
+A Apollo GraphQL server with a Mongoose MongoDB backend
 
 ### Features
 
 - Strongly typed with Typescript
-- Sequelize model class with strict types
+- Mongoose model with strict types
 - GraphQL type errors with http error codes
 
 ### Usage

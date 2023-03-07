@@ -1,7 +1,7 @@
 scalar Date
 
 type Task {
-  id: ID
+  _id: ID
   task: String
   createdAt: Date
   updatedAt: Date

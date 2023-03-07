@@ -1,5 +1,5 @@
-export interface Args {
-  id: string | number
+type Args = {
+  id: string
   task: string
 }
 
