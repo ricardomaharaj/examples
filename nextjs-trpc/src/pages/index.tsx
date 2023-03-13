@@ -31,7 +31,12 @@ export default function Home() {
   )
 }
 
-function TaskCard(props: { task: Task; refetch: () => void }) {
+interface TaskCardProps {
+  task: Task
+  refetch: ReturnType<typeof trpc.task.getAll.useQuery>['refetch']
+}
+
+function TaskCard(props: TaskCardProps) {
   const taskRef = useRef<HTMLInputElement>(null)
 
   const { task, refetch } = props
@@ -45,6 +50,7 @@ function TaskCard(props: { task: Task; refetch: () => void }) {
     await update({ id: task.id, task: val })
     refetch()
   }
+
   const deleteTask = async () => {
     await remove({ id: task.id })
     refetch()

@@ -1,6 +1,6 @@
 # NextJS tRPC
 
-A tRPC API integrated into NextJS todo (CRUD)
+A tRPC API integrated into NextJS (Todo CRUD)
 
 ### Features
 
