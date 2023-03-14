@@ -12,4 +12,4 @@ A demonstration of how to use SWR in a React app (Todo CRUD)
 
 - install dependencies
 - run the `db` script
-- in another terminal run the `db` script
+- in another terminal run the `dev` script
