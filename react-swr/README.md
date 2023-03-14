@@ -1,23 +1,15 @@
 # React SWR
 
-Example of SWR in a React app (Todo CRUD)
+A demonstration of how to use SWR in a React app (Todo CRUD)
 
-### Features:
+### Features
 
-- Strongly typed with Typescript
-- SWR same request grouping
-- Axios instance shared app wide via `SWRConfig`
-- Tailwind styled client interface
+- Shared axios instance used app-wide
+- Relative api routing with `baseURL` in axios instance
+- SWRConfig context also using axios instance
 
 ### Usage
 
-client:
-
-1. install dependencies
-2. run the `dev` script
-
-server: `../fastify-sequelize`
-
-1. install dependencies
-2. run the watch script `npm run w`
-3. in another terminal run the dev script `npm run dev`
+- install dependencies
+- run the `db` script
+- in another terminal run the `db` script
