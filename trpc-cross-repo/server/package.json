@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "w": "tsc -w",
+    "dev": "nodemon build/server"
+  },
+  "dependencies": {
+    "@prisma/client": "4.11.0",
+    "@trpc/server": "10.16.0",
+    "@types/cors": "2.8.13",
+    "@types/node": "18.15.3",
+    "cors": "2.8.5",
+    "nodemon": "2.0.21",
+    "prisma": "4.11.0",
+    "superjson": "1.12.2",
+    "typescript": "5.0.2",
+    "zod": "3.21.4"
+  }
+}
