@@ -1,0 +1,18 @@
+scalar Date
+
+type Task {
+  id: ID
+  body: String
+  date: Date
+}
+
+type Query {
+  tasks: [Task]
+  task(id: ID): Task
+}
+
+type Mutation {
+  createTask(body: String): Boolean
+  updateTask(id: ID, body: String): Boolean
+  deleteTask(id: ID): Boolean
+}
