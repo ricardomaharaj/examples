@@ -1,7 +1,7 @@
-import { router } from '../trpc'
+import { createTRPCRouter } from '../trpc'
 import { taskRouter } from './task'
 
-export const appRouter = router({
+export const appRouter = createTRPCRouter({
   task: taskRouter,
 })
 
