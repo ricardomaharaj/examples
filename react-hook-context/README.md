@@ -1,15 +1,9 @@
 # React Hook Context
 
-A demonstration of a hook inside a context (Todo CRUD)
+A React custom hook and reducer used in a context
 
 ### Features
 
-- Strongly typed with Typescript
-- Type derived / inferred from code
-- Hook used within a context
-- Tailwind styled interface
-
-### Usage
-
-1. install dependencies
-2. run the `dev` script
+- No default values required for context
+- Contexts are type inferred (no repeating)
+- Form reducer to avoid excessive useState calls
