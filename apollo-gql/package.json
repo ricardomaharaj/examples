@@ -10,7 +10,7 @@
   "dependencies": {
     "@apollo/server": "4.5.0",
     "@prisma/client": "4.11.0",
-    "@types/node": "18.15.3",
+    "@types/node": "18.15.6",
     "graphql": "16.6.0",
     "prisma": "4.11.0",
     "typescript": "5.0.2"
