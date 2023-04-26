@@ -1,0 +1,34 @@
+type User {
+  id: Int!
+  username: String!
+  posts(skip: Int!, take: Int!): [Post!]!
+  comments(skip: Int!, take: Int!): [Comment!]!
+}
+
+type Post {
+  id: Int!
+  body: String!
+  author: User!
+  authorId: Int!
+  comments(skip: Int!, take: Int!): [Comment!]!
+}
+
+type Comment {
+  id: Int!
+  body: String
+  author: User!
+  authorId: Int!
+  post: Post!
+  postId: Int!
+}
+
+type Query {
+  user(id: Int!): User!
+  users: [User!]!
+
+  post(id: Int!): Post!
+  posts: [Post!]!
+
+  comment(id: Int!): Comment!
+  comments: [Comment!]!
+}
