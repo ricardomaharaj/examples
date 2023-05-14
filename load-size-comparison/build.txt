@@ -1,0 +1,76 @@
+plain
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      248 B          76.2 kB
+├   /_app                                  0 B            75.9 kB
+└ ○ /404                                   182 B          76.1 kB
++ First Load JS shared by all              75.9 kB
+  ├ chunks/framework-67b74e9d93c259f2.js   45.2 kB
+  ├ chunks/main-de8155c01edb5347.js        29.7 kB
+  ├ chunks/pages/_app-540c5f5246d418f1.js  288 B
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
++ gql-yoga api route
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      248 B          76.2 kB
+├   /_app                                  0 B            75.9 kB
+├ ○ /404                                   182 B          76.1 kB
+└ λ /api/gql                               0 B            75.9 kB
++ First Load JS shared by all              75.9 kB
+  ├ chunks/framework-67b74e9d93c259f2.js   45.2 kB
+  ├ chunks/main-de8155c01edb5347.js        29.7 kB
+  ├ chunks/pages/_app-540c5f5246d418f1.js  288 B
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
++ gql-yoga api route
++ urql (just provider)
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      248 B          84.6 kB
+├   /_app                                  0 B            84.4 kB
+├ ○ /404                                   182 B          84.6 kB
+└ λ /api/gql                               0 B            84.4 kB
++ First Load JS shared by all              84.4 kB
+  ├ chunks/framework-67b74e9d93c259f2.js   45.2 kB
+  ├ chunks/main-de8155c01edb5347.js        29.7 kB
+  ├ chunks/pages/_app-529fe899a4f89150.js  8.74 kB
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
++ gql-yoga api route
++ urql (provider + useQuery)
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      279 B          85.8 kB
+├   /_app                                  0 B            85.5 kB
+├ ○ /404                                   182 B          85.7 kB
+└ λ /api/gql                               0 B            85.5 kB
++ First Load JS shared by all              85.5 kB
+  ├ chunks/framework-67b74e9d93c259f2.js   45.2 kB
+  ├ chunks/main-de8155c01edb5347.js        29.7 kB
+  ├ chunks/pages/_app-6b99864964c90f47.js  9.86 kB
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
++ gql-yoga api route
++ urql (provider + graphCache + useQuery)
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      420 B          92.3 kB
+├   /_app                                  0 B            91.8 kB
+├ ○ /404                                   182 B            92 kB
+└ λ /api/gql                               0 B            91.8 kB
++ First Load JS shared by all              91.8 kB
+  ├ chunks/framework-67b74e9d93c259f2.js   45.2 kB
+  ├ chunks/main-de8155c01edb5347.js        29.7 kB
+  ├ chunks/pages/_app-cd3179d0321e02df.js  16.2 kB
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
++ gql-yoga api route
++ urql (provider + graphCache + useQuery)
++ prisma + nextauth (provider + useSession)
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      416 B           103 kB
+├   /_app                                  0 B             102 kB
+├ ○ /404                                   182 B           102 kB
+├ λ /api/auth/[...nextauth]                0 B             102 kB
+└ λ /api/gql                               0 B             102 kB
++ First Load JS shared by all              102 kB
+  ├ chunks/framework-ac88a2a245aea9ab.js   45.2 kB
+  ├ chunks/main-de8155c01edb5347.js        29.7 kB
+  ├ chunks/pages/_app-75140f6349409aaf.js  26.4 kB
+  └ chunks/webpack-9339c7e225139a0a.js     776 B
