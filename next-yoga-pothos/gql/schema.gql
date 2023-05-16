@@ -9,20 +9,23 @@ type Comment {
 
 type Mutation {
   addCommentToPost(commentId: String!, postId: String!): Boolean!
-  connectUserFromComment(commentId: String!, userId: String!): Boolean!
+  changeCommentAuthor(commentId: String!, userId: String!): Boolean!
+  changeCommentPost(commentId: String!, postId: String!): Boolean!
+  changePostAuthor(authorId: String!, postId: String!): Boolean!
+  connectUserToComment(commentId: String!, userId: String!): Boolean!
   connectUserToPost(postId: String!, userId: String!): Boolean!
   createComment(authorId: String!, body: String, postId: String!): Boolean!
   createPost(authorId: String!, body: String): Boolean!
   createUser(email: String!): Boolean!
-  deleteComment(id: String!): Boolean!
-  deletePost(id: String!): Boolean!
-  deleteUser(id: String!): Boolean!
+  deleteComment(commentId: String!): Boolean!
+  deletePost(postId: String!): Boolean!
+  deleteUser(userId: String!): Boolean!
   disconnectUserFromComment(commentId: String!, userId: String!): Boolean!
   disconnectUserFromPost(postId: String!, userId: String!): Boolean!
   removeCommentFromPost(commentId: String!, postId: String!): Boolean!
-  updateComment(body: String, id: String!): Boolean!
-  updatePost(body: String, id: String!): Boolean!
-  updateUser(email: String, id: String!): Boolean!
+  updateComment(body: String, commentId: String!): Boolean!
+  updatePost(body: String, postId: String!): Boolean!
+  updateUser(email: String, userId: String!): Boolean!
 }
 
 type Post {
