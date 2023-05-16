@@ -36,6 +36,17 @@ builder.mutationFields((t) => ({
       await prisma.post.delete({ where: { id: postId } })
       return true
     },
+  }),
+  changePostAuthor: t.boolean({
+    args: {
+      postId: t.arg.string({ required: true }),
+      authorId: t.arg.string({ required: true }),
+    },
+    resolve: async (_, { postId, authorId }) => {
+      await prisma.post.update({
+        where: { id: postId },
+        data: { authorId },
+      })
       return true
     },
   }),

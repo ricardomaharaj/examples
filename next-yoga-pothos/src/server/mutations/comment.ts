@@ -39,6 +39,29 @@ builder.mutationFields((t) => ({
       return true
     },
   }),
+  changeCommentAuthor: t.boolean({
+    args: {
+      commentId: t.arg.string({ required: true }),
+      userId: t.arg.string({ required: true }),
+    },
+    resolve: async (_, { commentId, userId }) => {
+      await prisma.comment.update({
+        where: { id: commentId },
+        data: { authorId: userId },
+      })
+      return true
+    },
+  }),
+  changeCommentPost: t.boolean({
+    args: {
+      commentId: t.arg.string({ required: true }),
+      postId: t.arg.string({ required: true }),
+    },
+    resolve: async (_, { commentId, postId }) => {
+      await prisma.comment.update({
+        where: { id: commentId },
+        data: { postId },
+      })
       return true
     },
   }),
