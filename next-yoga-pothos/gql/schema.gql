@@ -1,0 +1,50 @@
+type Comment {
+  author: User!
+  authorId: String!
+  body: String!
+  id: String!
+  post: Post!
+  postId: String!
+}
+
+type Mutation {
+  addCommentToPost(commentId: String!, postId: String!): Boolean!
+  connectUserFromComment(commentId: String!, userId: String!): Boolean!
+  connectUserToPost(postId: String!, userId: String!): Boolean!
+  createComment(authorId: String!, body: String, postId: String!): Boolean!
+  createPost(authorId: String!, body: String): Boolean!
+  createUser(email: String!): Boolean!
+  deleteComment(id: String!): Boolean!
+  deletePost(id: String!): Boolean!
+  deleteUser(id: String!): Boolean!
+  disconnectUserFromComment(commentId: String!, userId: String!): Boolean!
+  disconnectUserFromPost(postId: String!, userId: String!): Boolean!
+  removeCommentFromPost(commentId: String!, postId: String!): Boolean!
+  updateComment(body: String, id: String!): Boolean!
+  updatePost(body: String, id: String!): Boolean!
+  updateUser(email: String, id: String!): Boolean!
+}
+
+type Post {
+  author: User!
+  authorId: String!
+  body: String!
+  comments: [Comment!]!
+  id: String!
+}
+
+type Query {
+  comment(id: String!): Comment!
+  comments: [Comment!]!
+  post(id: String!): Post!
+  posts: [Post!]!
+  user(id: String!): User!
+  users: [User!]!
+}
+
+type User {
+  comments: [Comment!]!
+  email: String!
+  id: String!
+  posts: [Post!]!
+}
