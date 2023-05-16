@@ -21,21 +21,24 @@ builder.mutationFields((t) => ({
   }),
   updateComment: t.boolean({
     args: {
-      id: t.arg.string({ required: true }),
+      commentId: t.arg.string({ required: true }),
       body: t.arg.string(),
     },
-    resolve: async (_, { id, body }) => {
+    resolve: async (_, { commentId, body }) => {
       await prisma.comment.update({
-        where: { id },
+        where: { id: commentId },
         data: { body: body ?? undefined },
       })
       return true
     },
   }),
   deleteComment: t.boolean({
-    args: { id: t.arg.string({ required: true }) },
-    resolve: async (_, { id }) => {
-      await prisma.comment.delete({ where: { id } })
+    args: { commentId: t.arg.string({ required: true }) },
+    resolve: async (_, { commentId }) => {
+      await prisma.comment.delete({ where: { id: commentId } })
+      return true
+    },
+  }),
       return true
     },
   }),

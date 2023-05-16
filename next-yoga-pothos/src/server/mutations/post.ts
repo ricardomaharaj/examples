@@ -19,21 +19,23 @@ builder.mutationFields((t) => ({
   }),
   updatePost: t.boolean({
     args: {
-      id: t.arg.string({ required: true }),
+      postId: t.arg.string({ required: true }),
       body: t.arg.string(),
     },
-    resolve: async (_, { id, body }) => {
+    resolve: async (_, { postId, body }) => {
       await prisma.post.update({
-        where: { id },
+        where: { id: postId },
         data: { body: body ?? undefined },
       })
       return true
     },
   }),
   deletePost: t.boolean({
-    args: { id: t.arg.string({ required: true }) },
-    resolve: async (_, { id }) => {
-      await prisma.post.delete({ where: { id } })
+    args: { postId: t.arg.string({ required: true }) },
+    resolve: async (_, { postId }) => {
+      await prisma.post.delete({ where: { id: postId } })
+      return true
+    },
       return true
     },
   }),

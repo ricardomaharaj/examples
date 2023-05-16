@@ -11,21 +11,21 @@ builder.mutationFields((t) => ({
   }),
   updateUser: t.boolean({
     args: {
-      id: t.arg.string({ required: true }),
+      userId: t.arg.string({ required: true }),
       email: t.arg.string(),
     },
-    resolve: async (_, { id, email }) => {
+    resolve: async (_, { userId, email }) => {
       await prisma.user.update({
-        where: { id },
+        where: { id: userId },
         data: { email: email ?? undefined },
       })
       return true
     },
   }),
   deleteUser: t.boolean({
-    args: { id: t.arg.string({ required: true }) },
-    resolve: async (_, { id }) => {
-      await prisma.user.delete({ where: { id } })
+    args: { userId: t.arg.string({ required: true }) },
+    resolve: async (_, { userId }) => {
+      await prisma.user.delete({ where: { id: userId } })
       return true
     },
   }),
