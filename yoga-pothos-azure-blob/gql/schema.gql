@@ -1,0 +1,17 @@
+type File {
+  id: Int!
+  name: String!
+  type: String!
+  url: String!
+}
+
+scalar FileScalar
+
+type Mutation {
+  uploadFile(file: FileScalar!): String!
+}
+
+type Query {
+  file(id: Int!): File!
+  files(skip: Int, take: Int): [File!]!
+}
