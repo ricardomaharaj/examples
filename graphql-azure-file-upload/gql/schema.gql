@@ -8,6 +8,7 @@ type File {
 scalar FileScalar
 
 type Mutation {
+  deleteFile(fileId: Int!): Boolean!
   uploadFile(file: FileScalar!): String!
 }
 

@@ -1,7 +1,10 @@
 import { createYoga } from 'graphql-yoga'
+import type { PageConfig } from 'next'
 import { env } from '~/env'
 import { schema } from '~/server/schema'
-import { Yoga } from '~/types/yoga'
+import type { Yoga } from '~/types/yoga'
+
+export const config: PageConfig = { api: { bodyParser: false } }
 
 const yoga = createYoga<Yoga>({
   schema: schema,

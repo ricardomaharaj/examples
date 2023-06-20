@@ -1,4 +1,4 @@
-import { File } from '@prisma/client'
+import type { File } from '@prisma/client'
 import { gql, useQuery } from 'urql'
 
 const query = gql`
@@ -21,5 +21,5 @@ type Vars = {
   take?: number
 }
 
-export const useFiles = (variables: Vars) =>
+export const useGetFiles = (variables: Vars) =>
   useQuery<Data, Vars>({ query, variables })

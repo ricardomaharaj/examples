@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Provider, cacheExchange, createClient, fetchExchange } from 'urql'
 
 const client = createClient({

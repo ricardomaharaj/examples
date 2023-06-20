@@ -11,11 +11,13 @@ builder.queryFields((t) => ({
     },
     resolve: async (query, _, args) => {
       const { skip, take } = args
+
       const files = await prisma.file.findMany({
         skip: skip ?? 0,
         take: take ?? 10,
         ...query,
       })
+
       return files
     },
   }),
@@ -26,11 +28,13 @@ builder.queryFields((t) => ({
     },
     resolve: async (query, _, args) => {
       const { id } = args
+
       const file = await prisma.file.findUnique({
         where: { id },
         ...query,
       })
       if (!file) throw GQLError(404)
+
       return file
     },
   }),

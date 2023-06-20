@@ -1,5 +1,5 @@
 {
-  "name": "yoga-pothos-azure-blob",
+  "name": "graphql-azure-file-upload",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",

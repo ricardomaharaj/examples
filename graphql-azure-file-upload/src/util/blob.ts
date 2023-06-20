@@ -16,7 +16,10 @@ export const blobUtil = {
         blobContentType: file.type,
       },
     })
-    return blob.url.split('?')[0]
+    return {
+      url: blob.url.split('?')[0],
+      blobName,
+    }
   },
   getFile: async (args: { blobName: string }) => {
     const { blobName } = args
