@@ -1,0 +1,33 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.types": "tsc --incremental --noEmit",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "dev": "vite --port 3000 --mode ssr",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "postinstall": "prisma generate",
+    "preview": "qwik build preview && vite preview --port 3000",
+    "gen": "prisma generate",
+    "push": "prisma db push",
+    "studio": "prisma studio",
+    "start": "vite --port 3000 --mode ssr",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@auth/core": "0.10.0",
+    "@auth/prisma-adapter": "1.0.1",
+    "@builder.io/qwik": "1.2.6",
+    "@builder.io/qwik-auth": "0.1.0",
+    "@builder.io/qwik-city": "1.2.6",
+    "@prisma/client": "5.0.0",
+    "@types/node": "20.4.2",
+    "prisma": "5.0.0",
+    "typescript": "5.1.6",
+    "vite": "4.4.4",
+    "vite-tsconfig-paths": "4.2.0"
+  }
+}
