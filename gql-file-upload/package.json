@@ -8,11 +8,12 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "axios": "latest",
+    "graphql": "latest",
+    "graphql-yoga": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "typescript": "latest",
-    "zod": "latest"
+    "urql": "latest"
   }
 }

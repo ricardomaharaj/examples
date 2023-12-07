@@ -1,0 +1,14 @@
+scalar DateTime
+
+type Task {
+  id: ID!
+  updatedAt: DateTime!
+}
+
+type Query {
+  tasks: [Task!]!
+}
+
+type Mutation {
+  createTask: Task!
+}

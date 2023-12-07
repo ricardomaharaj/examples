@@ -1,6 +1,5 @@
 import { createSchema, createYoga } from 'graphql-yoga'
 import nodemailer from 'nodemailer'
-import { createServer } from 'node:http'
 import { env } from './env'
 
 const schema = createSchema({
@@ -74,8 +73,8 @@ const yoga = createYoga({
   graphqlEndpoint: '/',
 })
 
-const server = createServer(yoga)
-
-server.listen({ port: 4000 })
+Bun.serve({
+  fetch: yoga,
+})
 
 console.log('http://localhost:4000')

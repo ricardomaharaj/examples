@@ -6,7 +6,7 @@ import formbody from '@fastify/formbody'
 const fast = Fast()
 
 fast.register(cors)
-fast.register(multipart, { addToBody: true })
+fast.register(multipart, { attachFieldsToBody: true })
 fast.register(formbody)
 
 fast.post('/', async (req, res) => {

@@ -18,15 +18,13 @@ export const tasksController = (
   })
 
   fast.post('/', async (req, res) => {
-    const { body } = req.body as ReqData
-    await prisma.task.create({ data: { body } })
+    await prisma.task.create({ data: {} })
     return true
   })
 
   fast.patch('/:id', async (req, res) => {
     const { id } = req.params as ReqData
-    const { body } = req.body as ReqData
-    await prisma.task.update({ data: { body }, where: { id } })
+    await prisma.task.update({ data: {}, where: { id } })
     return true
   })
 
@@ -35,5 +33,6 @@ export const tasksController = (
     await prisma.task.delete({ where: { id } })
     return true
   })
+
   done()
 }

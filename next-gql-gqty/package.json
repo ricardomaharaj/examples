@@ -5,14 +5,19 @@
     "dev": "next dev"
   },
   "dependencies": {
+    "@gqty/cli": "^3",
+    "@gqty/react": "^2",
+    "@prisma/client": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "axios": "latest",
+    "gqty": "^2",
+    "graphql": "latest",
+    "graphql-yoga": "latest",
     "next": "latest",
+    "prisma": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "typescript": "latest",
-    "zod": "latest"
+    "typescript": "latest"
   }
 }

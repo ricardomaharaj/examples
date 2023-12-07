@@ -1,5 +1,3 @@
-import 'dotenv/config'
-
 /** the vars you should have in your .env file */
 export const env = {
   // oauth 2.0 creds

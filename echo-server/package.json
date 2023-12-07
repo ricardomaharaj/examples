@@ -1,20 +1,13 @@
 {
-  "name": "echo-server",
+  "name": "app",
   "version": "0.1.0",
   "type": "module",
-  "scripts": {
-    "build": "tsc",
-    "start": "node build/server"
-  },
   "dependencies": {
-    "@fastify/cors": "8.2.1",
-    "@fastify/formbody": "7.4.0",
-    "@fastify/multipart": "7.5.0",
-    "fastify": "4.15.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.15.11",
-    "nodemon": "2.0.22",
-    "typescript": "5.0.3"
+    "@fastify/cors": "latest",
+    "@fastify/formbody": "latest",
+    "@fastify/multipart": "latest",
+    "bun-types": "latest",
+    "fastify": "latest",
+    "typescript": "latest"
   }
 }

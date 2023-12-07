@@ -7,6 +7,5 @@ export default defineConfig(() => {
   return {
     server: { port: 3000 },
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
-    optimizeDeps: { include: ['@auth/core'] },
   }
 })

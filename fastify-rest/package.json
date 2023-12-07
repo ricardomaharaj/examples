@@ -1,18 +1,13 @@
 {
-  "name": "fastify-rest",
+  "name": "app",
   "version": "0.1.0",
   "type": "module",
-  "scripts": {
-    "build": "tsc",
-    "start": "node build/server",
-    "postinstall": "prisma db push"
-  },
   "dependencies": {
-    "@fastify/cors": "8.2.1",
-    "@prisma/client": "4.11.0",
-    "@types/node": "18.15.6",
-    "fastify": "4.15.0",
-    "prisma": "4.11.0",
-    "typescript": "5.0.2"
+    "@fastify/cors": "latest",
+    "@prisma/client": "latest",
+    "bun-types": "latest",
+    "fastify": "latest",
+    "prisma": "latest",
+    "typescript": "latest"
   }
 }

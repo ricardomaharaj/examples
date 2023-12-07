@@ -8,16 +8,12 @@
     "dev": "vite --mode ssr"
   },
   "dependencies": {
-    "@auth/core": "latest",
-    "@auth/prisma-adapter": "latest",
     "@builder.io/qwik": "latest",
-    "@builder.io/qwik-auth": "latest",
     "@builder.io/qwik-city": "latest",
-    "@prisma/client": "latest",
     "@types/node": "latest",
-    "prisma": "latest",
     "sharp": "latest",
     "typescript": "latest",
+    "undici": "latest",
     "vite": "latest",
     "vite-tsconfig-paths": "latest"
   }
