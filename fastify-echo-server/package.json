@@ -1,13 +1,17 @@
 {
   "name": "app",
-  "version": "0.1.0",
+  "module": "src/server.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run ./src/server.ts"
+  },
   "dependencies": {
     "@fastify/cors": "latest",
     "@fastify/formbody": "latest",
     "@fastify/multipart": "latest",
-    "bun-types": "latest",
+    "@types/bun": "latest",
     "fastify": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "zod": "latest"
   }
 }

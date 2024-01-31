@@ -1,7 +1,8 @@
-import Fast from 'fastify'
 import cors from '@fastify/cors'
-import multipart from '@fastify/multipart'
 import formbody from '@fastify/formbody'
+import multipart from '@fastify/multipart'
+import Fast from 'fastify'
+import { env } from './env'
 
 const fast = Fast()
 
@@ -13,5 +14,5 @@ fast.post('/', async (req, res) => {
   return req.body
 })
 
-fast.listen({ port: 4000 })
-console.log('http://localhost:4000/')
+fast.listen({ port: env.PORT })
+console.log(`http://localhost:${env.PORT}`)

@@ -1,13 +1,17 @@
 {
   "name": "app",
-  "version": "0.1.0",
+  "module": "src/server.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run src/server.ts"
+  },
   "dependencies": {
+    "@types/bun": "latest",
     "@types/nodemailer": "latest",
-    "bun-types": "latest",
     "graphql": "latest",
     "graphql-yoga": "latest",
     "nodemailer": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "zod": "latest"
   }
 }

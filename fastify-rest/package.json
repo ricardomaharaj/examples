@@ -1,13 +1,21 @@
 {
   "name": "app",
-  "version": "0.1.0",
+  "module": "src/server.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run ./src/server.ts",
+    "postinstall": "prisma generate",
+    "gen": "prisma generate",
+    "push": "prisma db push",
+    "studio": "prisma studio"
+  },
   "dependencies": {
     "@fastify/cors": "latest",
     "@prisma/client": "latest",
-    "bun-types": "latest",
+    "@types/bun": "latest",
     "fastify": "latest",
     "prisma": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "zod": "latest"
   }
 }

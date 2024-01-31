@@ -1,4 +1,5 @@
 import { createSchema, createYoga } from 'graphql-yoga'
+import { createServer } from 'node:http'
 import nodemailer from 'nodemailer'
 import { env } from './env'
 
@@ -8,7 +9,6 @@ const schema = createSchema({
 
     type Query {
       sendTestMail(to: String!, msg: String!): Any
-      sendTestSAMail(to: String!, msg: String!): Any
     }
   `,
   resolvers: {
@@ -39,31 +39,6 @@ const schema = createSchema({
           return error
         }
       },
-      sendTestSAMail: async function (_, args: { to: string; msg: string }) {
-        try {
-          const transport = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              type: 'OAuth2',
-              user: env.GOOGLE_SA_CLIENT_EMAIL,
-              serviceClient: env.GOOGLE_SA_CLIENT_ID,
-              privateKey: env.GOOGLE_SA_PRIVATE_KEY,
-            },
-          })
-
-          const res = await transport.sendMail({
-            from: env.GOOGLE_SA_CLIENT_EMAIL,
-            to: args.to,
-            subject: `Test Email @ ${new Date().toJSON()}`,
-            html: `<p>${args.msg}</p>`,
-          })
-
-          return res
-        } catch (error) {
-          console.error(error)
-          return error
-        }
-      },
     },
   },
 })
@@ -73,8 +48,7 @@ const yoga = createYoga({
   graphqlEndpoint: '/',
 })
 
-Bun.serve({
-  fetch: yoga,
-})
+const server = createServer(yoga)
 
-console.log('http://localhost:4000')
+server.listen({ port: env.PORT })
+console.log(`http://localhost:${env.PORT}`)

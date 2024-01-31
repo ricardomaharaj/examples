@@ -4,9 +4,13 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:../db"
+  url      = "file:../db.sqlite"
 }
 
 model Task {
   id String @id @default(cuid())
+
+  //
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
