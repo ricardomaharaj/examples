@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../db.sqlite"
+}
+
+model User {
+  id    String  @id @default(cuid())
+  name  String?
+  email String?
+
+  tasks Task[]
+}
+
+model Task {
+  id    String  @id @default(cuid())
+  title String?
+  desc  String?
+
+  users User[]
+}
