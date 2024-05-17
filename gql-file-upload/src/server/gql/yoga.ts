@@ -18,7 +18,7 @@ const schema = createSchema({
 })
 
 const yoga = createYoga({
-  schema,
+  schema: schema,
   graphqlEndpoint: '/api/gql',
 })
 
