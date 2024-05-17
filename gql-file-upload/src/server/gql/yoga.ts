@@ -1,17 +1,8 @@
 import { createSchema, createYoga } from 'graphql-yoga'
+import fs from 'node:fs'
 
 const schema = createSchema({
-  typeDefs: /* GraphQL */ `
-    scalar File
-
-    type Query {
-      now: String
-    }
-
-    type Mutation {
-      uploadFile(file: File): Boolean
-    }
-  `,
+  typeDefs: fs.readFileSync('./gql/schema.gql').toString('utf-8'),
   resolvers: {
     Query: {
       now: () => Date.now(),
@@ -19,7 +10,7 @@ const schema = createSchema({
     Mutation: {
       uploadFile: async (parent, args, ctx, info) => {
         const file: File = args.file
-        console.log({ file })
+        console.log(file)
         return true
       },
     },

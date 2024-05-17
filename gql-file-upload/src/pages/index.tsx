@@ -1,17 +1,19 @@
-import { useRef } from 'react'
+import { FormEvent, useRef } from 'react'
 import { useMutation } from 'urql'
-import { uploadFileMutation } from '~/gql/upload-file'
+import { uploadFileMutation } from '~/gql/mutations/upload-file'
 
 export default function Home() {
-  const [res, uploadFile] = useMutation(uploadFileMutation)
+  const [, uploadFile] = useMutation(uploadFileMutation)
 
   const fileRef = useRef<HTMLInputElement>(null)
 
-  async function handleSubmit() {
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+
     const file = fileRef.current?.files?.item(0)
     if (!file) return
 
-    uploadFile({ file })
+    await uploadFile({ file })
   }
 
   return (
