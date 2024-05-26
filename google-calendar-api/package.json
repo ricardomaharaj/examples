@@ -7,10 +7,10 @@
   },
   "dependencies": {
     "@types/bun": "^1",
-    "dayjs": "^1.11.11",
-    "googleapis": "^137.1.0",
-    "graphql": "^16.8.1",
-    "graphql-yoga": "^5.3.1",
+    "dayjs": "^1",
+    "googleapis": "^137",
+    "graphql": "^16",
+    "graphql-yoga": "^5",
     "typescript": "^5"
   }
 }

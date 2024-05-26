@@ -5,14 +5,13 @@
     "dev": "next dev"
   },
   "dependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "axios": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "typescript": "latest",
-    "zod": "latest"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "axios": "^1",
+    "next": "^14",
+    "react": "^18",
+    "react-dom": "^18",
+    "typescript": "^5"
   }
 }
