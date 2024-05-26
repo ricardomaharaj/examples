@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../db.sqlite"
+}
+
+model Task {
+  id String @id @default(cuid())
+
+  //
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
