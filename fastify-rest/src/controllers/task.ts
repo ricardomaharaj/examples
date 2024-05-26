@@ -1,5 +1,5 @@
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify'
-import { prisma } from './prisma.js'
+import { prisma } from '~/prisma'
 
 type ReqData = Record<string, string>
 

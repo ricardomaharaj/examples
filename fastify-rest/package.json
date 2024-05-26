@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "server",
   "module": "src/server.ts",
   "type": "module",
   "scripts": {
@@ -10,12 +10,11 @@
     "studio": "prisma studio"
   },
   "dependencies": {
-    "@fastify/cors": "latest",
-    "@prisma/client": "latest",
-    "@types/bun": "latest",
-    "fastify": "latest",
-    "prisma": "latest",
-    "typescript": "latest",
-    "zod": "latest"
+    "@fastify/cors": "^9",
+    "@prisma/client": "^5",
+    "@types/bun": "^1",
+    "fastify": "^4",
+    "prisma": "^5",
+    "typescript": "^5"
   }
 }

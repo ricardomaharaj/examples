@@ -2,7 +2,7 @@ import cors from '@fastify/cors'
 import formbody from '@fastify/formbody'
 import multipart from '@fastify/multipart'
 import Fast from 'fastify'
-import { env } from './env'
+import { env } from '~/env'
 
 const fast = Fast()
 

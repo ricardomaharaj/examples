@@ -1,7 +1,7 @@
 import cors from '@fastify/cors'
 import Fast from 'fastify'
-import { env } from './env.js'
-import { tasksController } from './tasks-controller.js'
+import { tasksController } from '~/controllers/task'
+import { env } from '~/env'
 
 const fast = Fast()
 fast.register(cors)
