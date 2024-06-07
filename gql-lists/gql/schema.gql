@@ -1,0 +1,98 @@
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+type Location {
+  city: String
+  country: String
+  id: ID!
+  province: String
+  user: User!
+  userId: String!
+}
+
+type Mutation {
+  seed: Boolean!
+}
+
+type Query {
+  task(taskId: String!): Task!
+  tasks(filter: TaskListFilter, search: TaskListSearch, skip: Int = 0, sort: TaskFilterSort, take: Int = 10): [Task!]!
+  user(userId: String!): User!
+  users(filter: UserListFilter, search: UserListSearch, skip: Int = 0, sort: UserFilterSort, take: Int = 10): [User!]!
+}
+
+type Task {
+  createdAt: DateTime!
+  desc: String
+  id: ID!
+  labels: [String!]!
+  title: String
+  updatedAt: DateTime!
+  users(filter: UserListFilter, search: UserListSearch, skip: Int = 0, sort: UserFilterSort, take: Int = 10): [User!]!
+}
+
+input TaskFilterSort {
+  createdAt: Boolean
+  updatedAt: Boolean
+}
+
+input TaskListFilter {
+  desc: String
+  labels: [String!]
+  title: String
+
+  """list of user ids"""
+  users: [String!]
+}
+
+input TaskListSearch {
+  desc: String
+  labels: [String!]
+  title: String
+
+  """list of user ids"""
+  users: [String!]
+}
+
+type User {
+  createdAt: DateTime!
+  email: String
+  id: ID!
+  image: String
+  location: Location!
+  name: String
+  tags: [String!]!
+  tasks(filter: TaskListFilter, search: TaskListSearch, skip: Int = 0, sort: TaskFilterSort, take: Int = 10): [Task!]!
+  updatedAt: DateTime!
+}
+
+input UserFilterSort {
+  createdAt: Boolean
+  updatedAt: Boolean
+}
+
+input UserListFilter {
+  cities: [String!]
+  city: String
+  countries: [String!]
+  country: String
+  email: String
+  name: String
+  province: String
+  provinces: [String!]
+  tags: [String!]
+}
+
+input UserListSearch {
+  cities: [String!]
+  city: String
+  countries: [String!]
+  country: String
+  email: String
+  name: String
+  province: String
+  provinces: [String!]
+  tags: [String!]
+}
