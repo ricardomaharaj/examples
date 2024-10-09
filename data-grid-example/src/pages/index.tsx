@@ -9,6 +9,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import { useState } from "react"
 import useSWR from "swr"
 import { defaultTeams, Team, User, UserStatus, userStatuses } from "~/types"
+import { isNumberBetween } from "~/util/number-between"
 
 const cols: GridColDef<User>[] = [
   {
@@ -47,11 +48,8 @@ export default function Home() {
   const teams = res.data
 
   const [selectedTeams, setSelectedTeams] = useState(defaultTeams)
-
-  const [selectedStatuses, setSelectedStatuses] =
-    useState<UserStatus[]>(userStatuses)
-
-  const [selectedTaskRange, setSelectedTaskRange] = useState<number[]>([0, 10])
+  const [selectedStatuses, setSelectedStatuses] = useState(userStatuses)
+  const [selectedTaskRange, setSelectedTaskRange] = useState([0, 10])
 
   const users: User[] = (function () {
     let usersToReturn: User[] = []
@@ -73,21 +71,11 @@ export default function Home() {
 
     usersToReturn = usersToReturn.filter((user) => {
       if (selectedStatuses.includes(user.status)) return true
-
       return false
     })
 
     usersToReturn = usersToReturn.filter((user) => {
-      const minTaskCount = selectedTaskRange[0]
-      const maxTaskCount = selectedTaskRange[1]
-
-      if (
-        user.pendingTasks >= minTaskCount &&
-        user.pendingTasks <= maxTaskCount
-      ) {
-        return true
-      }
-
+      if (isNumberBetween(user.pendingTasks, selectedTaskRange)) return true
       return false
     })
 
