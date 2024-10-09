@@ -102,7 +102,7 @@ export default function Home() {
           filterSelectedOptions
           options={defaultTeams}
           defaultValue={defaultTeams}
-          renderInput={(props) => <TextField label="Committees" {...props} />}
+          renderInput={(props) => <TextField label="Teams" {...props} />}
           onChange={(e, val) => setSelectedTeams(val)}
         />
         <Autocomplete
