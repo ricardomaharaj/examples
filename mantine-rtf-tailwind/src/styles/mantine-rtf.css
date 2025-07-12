@@ -1,0 +1,27 @@
+.mantine-RichTextEditor-root {
+  @apply rounded-xl border p-4 shadow-lg;
+}
+
+.mantine-RichTextEditor-toolbar {
+  @apply border-b pt-1 pb-2;
+}
+
+.mantine-RichTextEditor-controlsGroup {
+  @apply flex flex-row gap-2 overflow-x-scroll;
+}
+
+.mantine-RichTextEditor-control[data-active] {
+  @apply rounded-md bg-blue-200;
+}
+
+.mantine-RichTextEditor-controlIcon {
+  @apply h-[24px] w-[24px];
+}
+
+.mantine-RichTextEditor-content {
+  @apply min-h-[200px];
+}
+
+.tiptap {
+  @apply prose outline-none;
+}
